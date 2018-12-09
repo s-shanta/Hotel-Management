@@ -1,0 +1,32 @@
+
+DROP TABLE Dhakabooking;
+CREATE TABLE Dhakabooking(
+id int, 
+cusid int,
+bid int, 
+rid int,
+ch_in date,
+ch_ot date,
+PRIMARY KEY(id)
+);
+
+DROP TABLE Chittagongbooking;
+CREATE TABLE Chittagongbooking(
+id int, 
+cusid int,
+bid int, 
+rid int,
+ch_in date,
+ch_ot date
+);
+
+
+DROP TABLE Khulnabooking;
+CREATE TABLE Khulnabooking(
+id int, 
+cusid int,
+bid int, 
+rid int,
+ch_in date,
+ch_ot date
+);

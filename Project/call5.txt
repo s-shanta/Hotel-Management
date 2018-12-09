@@ -1,0 +1,22 @@
+CLEAR SCREEN;
+
+
+SET SERVEROUTPUT ON;
+DECLARE
+	cid payment.pid % type;
+        amo payment.amount % type;
+
+BEGIN
+
+        cid :=  '&pid';
+	
+	
+       amo := findpayment(cid);
+
+
+       dbms_output.put_line(amo);
+	
+
+	
+END;
+/

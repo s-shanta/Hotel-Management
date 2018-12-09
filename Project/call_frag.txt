@@ -1,0 +1,20 @@
+SET SERVEROUTPUT ON;
+SET VERIFY OFF;
+
+
+DECLARE
+ bbbid int;
+	
+BEGIN
+            bbbid := '&branchid';
+
+             procfrag(bbbid);
+             
+          --select * from Dhakabooking;
+          --select * from chittagongbooking;
+         -- select * from Khulnabooking;
+
+	commit;
+END;
+/
+	

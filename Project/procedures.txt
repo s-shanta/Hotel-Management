@@ -1,0 +1,117 @@
+--1.signin procedure to insert data 
+
+create or replace procedure isignin(
+		name in signin.username % TYPE,
+		pass in signin.password % TYPE,
+		email in signin.email % type )
+		IS
+begin
+		insert into signin (username, password,email) values (name, pass,email);
+		commit;
+end isignin;
+/
+
+
+--2.Customer procedure to insert data 
+
+create or replace procedure icustomer( 
+                cid in customer.customerid % TYPE,
+		cname in customer.name % TYPE,
+		caddress in customer.address % TYPE,
+                cphone in customer.phone % TYPE,
+		cemail in customer.email % type )
+		IS
+begin
+		insert into customer(customerid,name,address,phone,email) values (cid,cname,caddress,cphone,cemail);
+		commit;
+end icustomer;
+/
+
+--3.update customer procedure
+
+create or replace procedure updateCustomer(
+		cid in customer.customerid % TYPE,
+		cname in customer.name % TYPE,
+		caddress in customer.address % TYPE,
+                cphone in customer.phone % TYPE,
+		cemail in customer.email % type )
+		IS
+begin
+		update customer set name=cname, address = caddress,phone=cphone,email=cemail where customerid=cid;
+end updateCustomer;
+/
+
+--4.insert branch procedure
+create or replace procedure ibranch(
+		bname in branch.name % TYPE )
+		IS
+		
+		id branch.branchid % TYPE := 0;
+begin
+		id := nextid('branch');
+		insert into branch (branchid, name ) values (id, bname );
+		commit;
+end ibranch;
+/
+
+--5.insert room procedure 
+create or replace procedure iroom(
+		rno in room.roomno % TYPE,
+		rprice in room.price % TYPE,
+                rbid in room.branchid % TYPE  )
+		IS
+		
+		id room.rid % TYPE := 0;
+begin
+		id := nextid('room');
+		 insert into room(rid,roomno,price,branchid)values(id,rno,rprice,rbid);
+		commit;
+end iroom;
+/
+
+--6.insert room in branch procedure
+create or replace procedure iroominbranch(
+		rrid in roomInbranch.rid % TYPE,
+                rbid in roomInbranch.branchid % TYPE )
+		IS
+		
+		
+begin
+		insert into roomInbranch (branchid, rid ) values (rbid,rrid );
+		commit;
+end iroominbranch;
+/
+
+--7.booking procedure to insert data 
+
+create or replace procedure ibooking( 
+		bcid in booking.customerid % TYPE,
+		bbid in booking.branchid % TYPE,
+                brid in booking.rid % TYPE,
+                bcheck_in in booking.check_in % TYPE,
+                bcheck_out in booking.check_out % TYPE )
+                IS 
+
+		id booking.iid % TYPE := 0;
+begin
+		id := nextid('booking');
+		insert into booking(iid,customerid,branchid,rid,check_in,check_out) values(id,bcid,bbid,brid,bcheck_in,bcheck_out);
+		commit;
+end ibooking;
+/
+
+--8.payment procedure to insert data 
+
+create or replace procedure ipayment( 
+		piid in payment.iid % TYPE,
+		pstatus in payment.status % TYPE,
+                pamount in payment.amount % TYPE )
+                IS
+
+		id payment.pid % TYPE := 0;
+begin
+		id := nextid('payment');
+		insert into payment(pid,iid,status,amount) values (id,piid,pstatus,pamount);
+		commit;
+end ipayment;
+/

@@ -1,0 +1,50 @@
+
+	insert into branch(branchid, name) values (1, 'Dhaka' );
+        insert into branch(branchid, name) values (2, 'Chittagong');
+        insert into branch(branchid, name) values (3, 'Khulna');
+        
+        insert into roomInbranch(branchid,rid) values(1,11);
+        insert into roomInbranch(branchid,rid) values(2,21);
+        insert into roomInbranch(branchid,rid) values(3,31);
+
+         
+        insert into roomInbranch(branchid,rid) values(1,12);
+        insert into roomInbranch(branchid,rid) values(2,22);
+        insert into roomInbranch(branchid,rid) values(3,32);
+
+
+
+
+
+        insert into customer(customerid, name , address, phone,email)values(1,'Koli','Dhanmondi','0177188899','kkgmail.com');
+        insert into customer(customerid, name , address, phone,email)values(2,'Roma','Rampura','0197548911','romagmail.com');
+        insert into customer(customerid, name , address, phone,email)values(3,'kochi','Chittagong','0167548921','kochygmail.com');
+
+        insert into customer(customerid, name , address, phone,email)values(4,'Karim','Dhanmondi','01771678902','kgmail.com');
+        insert into customer(customerid, name , address, phone,email)values(5,'Rana','Rampura','0197548902','ranagmail.com');
+        insert into customer(customerid, name , address, phone,email)values(6,'Shammy','Chittagong','0167548902','shammygmail.com');
+        
+
+        insert into room(rid,roomno,price,branchid)values(11,1,2500.50,1);
+        insert into room(rid,roomno,price,branchid)values(21,2,2500.50,2);
+        insert into room(rid,roomno,price,branchid)values(31,3,2500.50,3);
+
+        insert into room(rid,roomno,price,branchid)values(12,1,2500.50,1);
+        insert into room(rid,roomno,price,branchid)values(22,2,2500.50,2);
+        insert into room(rid,roomno,price,branchid)values(32,3,2500.50,3);
+        
+        
+        insert into booking(iid,customerid,branchid,rid,check_in,check_out) values (1,1,1,11,'20-Jul-2018','25-Jul-2018'); 
+        insert into booking(iid,customerid,branchid,rid,check_in,check_out) values (2,2,2,21,'20-Jul-2018','25-Jul-2018');
+        insert into booking(iid,customerid,branchid,rid,check_in,check_out) values (3,3,3,31,'20-Jul-2018','25-Jul-2018');
+
+        insert into booking(iid,customerid,branchid,rid,check_in,check_out) values (4,4,1,11,'20-Jul-2018','25-Jul-2018'); 
+        insert into booking(iid,customerid,branchid,rid,check_in,check_out) values (5,5,2,21,'20-Jul-2018','25-Jul-2018');
+        insert into booking(iid,customerid,branchid,rid,check_in,check_out) values (6,6,3,31,'20-Jul-2018','25-Jul-2018');
+      
+        
+
+        insert into payment(pid,iid,status,amount)values(1,1,'notpaid',2500.500);
+        insert into payment(pid,iid,status,amount)values(2,2,'paid',2500.500);
+        insert into payment(pid,iid,status,amount)values(3,3,'notpaid',2500.500);
+        commit;

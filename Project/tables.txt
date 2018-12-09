@@ -1,0 +1,65 @@
+DROP TABLE customer CASCADE CONSTRAINTS;
+DROP TABLE payment CASCADE CONSTRAINTS;
+DROP TABLE booking CASCADE CONSTRAINTS;
+DROP TABLE signin CASCADE CONSTRAINTS;
+DROP TABLE branch CASCADE CONSTRAINTS;
+DROP TABLE roomInbranch CASCADE CONSTRAINTS;
+DROP TABLE room CASCADE CONSTRAINTS;
+
+CREATE TABLE branch( 
+branchid int, 
+name varchar2(30), 
+PRIMARY KEY(branchid)
+);
+
+CREATE TABLE roomInbranch 
+( branchid int, 
+  rid int 
+);
+
+
+CREATE TABLE signin ( 
+username varchar2(10), 
+password varchar2(15), 
+email varchar2(30), 
+PRIMARY KEY(email) 
+);
+
+CREATE TABLE customer ( 
+customerid int, 
+name varchar2(15), 
+address varchar2(20), 
+phone varchar2(15),
+email varchar2(30),
+PRIMARY KEY(customerid)
+);
+						
+CREATE TABLE room ( 
+rid int,
+roomno int, 
+price float, 
+branchid int,
+PRIMARY KEY(rid),
+FOREIGN KEY(branchid) REFERENCES branch(branchid)
+);
+
+CREATE TABLE booking(
+iid int, 
+customerid int,
+branchid int, 
+rid int,
+check_in date,
+check_out date,
+PRIMARY KEY(iid),
+FOREIGN KEY(customerid) REFERENCES customer(customerid),
+FOREIGN KEY(branchid) REFERENCES branch(branchid)
+);
+
+CREATE TABLE payment(
+pid int, 
+iid int, 
+status varchar2(30),
+amount decimal(7,3),
+PRIMARY KEY(pid),
+FOREIGN KEY(iid) REFERENCES booking(iid)
+);

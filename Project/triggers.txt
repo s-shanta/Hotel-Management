@@ -1,0 +1,137 @@
+SET SERVEROUTPUT ON;
+--insert
+CREATE OR REPLACE TRIGGER trigerBranchI
+	AFTER INSERT 
+		ON branch
+			FOR EACH ROW
+BEGIN
+	
+	DBMS_OUTPUT.PUT_LINE('New branch created');
+	
+END;
+/
+
+CREATE OR REPLACE TRIGGER trigerCustomerI
+	AFTER INSERT 
+		ON customer
+			FOR EACH ROW
+BEGIN
+	
+	DBMS_OUTPUT.PUT_LINE('New customer added');
+	
+END;
+/
+	
+CREATE OR REPLACE TRIGGER trigerRoomI
+	AFTER INSERT 
+		ON room
+			FOR EACH ROW
+BEGIN
+	
+	DBMS_OUTPUT.PUT_LINE('New room added');
+	
+END;
+/
+	
+CREATE OR REPLACE TRIGGER trigerBookingI
+	AFTER INSERT 
+		ON booking
+			FOR EACH ROW
+BEGIN
+	
+	DBMS_OUTPUT.PUT_LINE('New booking');
+	
+END;
+/
+
+--update
+
+CREATE OR REPLACE TRIGGER trigerBranchU
+	AFTER update 
+		ON branch
+			FOR EACH ROW
+BEGIN
+	
+	DBMS_OUTPUT.PUT_LINE('Branch updated');
+	
+END;
+/
+
+CREATE OR REPLACE TRIGGER trigerCustomerU
+	AFTER update 
+		ON customer
+			FOR EACH ROW
+BEGIN
+	
+	DBMS_OUTPUT.PUT_LINE('customer updated');
+	
+END;
+/
+	
+CREATE OR REPLACE TRIGGER trigerRoomU
+	AFTER update 
+		ON room
+			FOR EACH ROW
+BEGIN
+	
+	DBMS_OUTPUT.PUT_LINE('room updated');
+	
+END;
+/
+	
+CREATE OR REPLACE TRIGGER trigerBookingU
+	AFTER update 
+		ON booking
+			FOR EACH ROW
+BEGIN
+	
+	DBMS_OUTPUT.PUT_LINE('booking updated');
+	
+END;
+/
+
+--delete
+
+CREATE OR REPLACE TRIGGER trigerBranchD
+	AFTER delete 
+		ON branch
+			FOR EACH ROW
+BEGIN
+	
+	DBMS_OUTPUT.PUT_LINE('a branch removed');
+	
+END;
+/
+
+CREATE OR REPLACE TRIGGER trigerCustomerD
+	AFTER delete 
+		ON customer
+			FOR EACH ROW
+BEGIN
+	
+	DBMS_OUTPUT.PUT_LINE('a customer removed');
+	
+END;
+/
+	
+CREATE OR REPLACE TRIGGER trigerRoomD
+	AFTER delete 
+		ON room
+			FOR EACH ROW
+BEGIN
+	
+	DBMS_OUTPUT.PUT_LINE('a room removed');
+	
+END;
+/
+	
+CREATE OR REPLACE TRIGGER trigerBookingD
+	AFTER delete 
+		ON booking
+			FOR EACH ROW
+BEGIN
+	
+	DBMS_OUTPUT.PUT_LINE('a booking canceled');
+	
+END;
+/

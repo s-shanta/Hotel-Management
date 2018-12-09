@@ -1,0 +1,20 @@
+CLEAR SCREEN;
+
+
+SET SERVEROUTPUT ON;
+
+
+
+DECLARE
+	sts payment.status % type;
+	id int;
+	
+BEGIN
+          id:='&pid';
+	
+	sts:= findsts(id);
+	
+        dbms_output.put_line(sts||' ');
+	
+END;
+/

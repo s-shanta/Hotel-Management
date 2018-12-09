@@ -1,0 +1,24 @@
+CLEAR SCREEN;
+
+
+SET SERVEROUTPUT ON;
+
+
+
+DECLARE
+	id customer.customerid % type;
+	
+	bid booking.iid % type;
+	
+BEGIN
+	id := '&customerid';
+
+	
+	
+	bid:= Isexst(id);
+       dbms_output.put_line(bid);
+	
+
+	
+END;
+/

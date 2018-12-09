@@ -1,0 +1,20 @@
+CLEAR SCREEN;
+
+
+SET SERVEROUTPUT ON;
+
+
+
+DECLARE
+	name varchar2(30);
+	bid int;
+	
+BEGIN
+          bid:='&branchid';
+	
+	name := findbranchname(bid);
+	
+        dbms_output.put_line(name||' ');
+	
+END;
+/

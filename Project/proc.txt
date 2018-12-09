@@ -1,0 +1,16 @@
+SET SERVEROUTPUT ON;
+SET VERIFY OFF;
+
+
+DECLARE
+	
+BEGIN
+             icustomer(8,'tan','Dhanmondi','01771678902','tagmail.com');
+
+             updateCustomer(7,'tan','Chittagong','01771678902','tagmail.com');
+
+
+	commit;
+END;
+/
+	

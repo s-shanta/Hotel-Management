@@ -1,0 +1,37 @@
+create or replace procedure procfrag(bbid int)
+
+		IS
+         theid    Dhakabooking.id%TYPE;
+         thecusid Dhakabooking.cusid%TYPE;
+         thebid   Dhakabooking.bid%TYPE;
+	 therid   Dhakabooking.rid%TYPE;
+         thech_in Dhakabooking.ch_in%TYPE;
+         thech_ot Dhakabooking.ch_ot%TYPE;
+
+        
+
+	cursor bo_cur(anId int) is
+	select iid,customerid,branchid,rid,check_in,check_out from booking
+	where branchid = anId;
+		
+        
+begin
+	
+                
+        open bo_cur(bbid);
+
+              loop
+              fetch bo_cur into theid,thecusid,thebid,therid,thech_in,thech_ot;
+              exit when bo_cur%notfound;
+
+              INSERT INTO Dhakabooking(id,cusid,bid,rid,ch_in,ch_ot) values(theid,thecusid,thebid,therid,thech_in,thech_ot);
+               
+              INSERT INTO Chittagongbooking(id,cusid,bid,rid,ch_in,ch_ot) values(theid,thecusid,thebid,therid,thech_in,thech_ot);
+                
+              INSERT INTO Khulnabooking(id,cusid,bid,rid,ch_in,ch_ot) values(theid,thecusid,thebid,therid,thech_in,thech_ot);   
+              end loop; 
+               
+      close bo_cur;	
+		
+end procfrag;
+/
